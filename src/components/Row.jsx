@@ -1,7 +1,17 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import "./Row.css";
 import axios from "../api/axios";
+
+const NextArrow = (props) => {
+  const { onClick } = props;
+  return <div className="custom-next-arrow" onClick={onClick} />;
+};
+
+const PrevArrow = (props) => {
+  const { onClick } = props;
+  return <div className="custom-prev-arrow" onClick={onClick} />;
+};
 
 const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   const [movies, setMovies] = useState([]);
@@ -10,15 +20,56 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
     const fetchData = async () => {
       const request = await axios.get(fetchUrl);
       setMovies(request.data.results);
-      return request;
     };
     fetchData();
   }, [fetchUrl]);
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    accessibility: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="row">
       <h2>{title}</h2>
-      <div className="row__posters">
+      <Slider {...settings}>
         {movies.map(
           (movie) =>
             ((isLargeRow && movie.poster_path) ||
@@ -33,7 +84,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
               />
             )
         )}
-      </div>
+      </Slider>
     </div>
   );
 };

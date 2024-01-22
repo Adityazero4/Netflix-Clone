@@ -1,45 +1,72 @@
 .row {
   color: white;
   margin-left: 20px;
+  overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 h2 {
   font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 30px;
+  color: white;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: #e50914;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-slider {
+  position: relative;
+  z-index: 0;
+  margin: 0 -20px;
+}
+
+.slick-list {
+  overflow: hidden;
+  margin: 0 -20px;
+}
+
+.slick-track {
+  display: flex;
 }
 
 .row__posters {
   display: flex;
-  overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: auto; /* Enable horizontal scrolling */
   padding: 20px;
+  margin: 0 -20px; /* Counteract the negative margin on slick-list */
 }
 
-.row__posters::-webkit-scrollbar {
-  display: none;
-}
-
-.row__poster {
+.row__poster,
+.row__posterLarge {
   max-height: 100px;
   object-fit: contain;
-  margin-right: 10px;
+  margin: 0 10px;
   transition: transform 450ms;
   width: 100%;
-}
-
-.row__poster:hover {
-  transform: scale(1.08);
-  opacity: 1;
 }
 
 .row__posterLarge {
   max-height: 250px;
-  object-fit: contain;
-  margin-right: 10px;
-  transition: transform 450ms;
-  width: 100%;
 }
 
+.row__poster:hover,
 .row__posterLarge:hover {
-  transform: scale(1.09);
-  opacity: 1;
+  transform: scale(1.08);
 }
