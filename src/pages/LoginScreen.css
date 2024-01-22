@@ -1,0 +1,181 @@
+.loginScreen {
+  position: relative;
+  height: 100%;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg")
+    center no-repeat;
+  background-size: cover;
+}
+
+.loginScreen__gradient {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.loginScreen__logo {
+  position: fixed;
+  top: 30px;
+  left: 100px;
+  width: 150px;
+  object-fit: contain;
+  padding-left: 20px;
+}
+
+.loginScreen__button {
+  position: fixed;
+  right: 140px;
+  top: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.loginScreen__body {
+  position: absolute;
+  top: 30%;
+  margin-left: 0;
+  margin-right: auto;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  left: 0;
+  right: 0;
+}
+
+.SignInScreen__body {
+  top: 20%;
+}
+
+.loginScreen__body > h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
+.loginScreen__body > h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.loginScreen__body > h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.loginScreen__input {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginScreen__input > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginScreen__input > form > input {
+  padding: 9px;
+  outline-width: 0;
+  height: 40px;
+  width: 40%;
+  border: 0.5px solid gray;
+  max-width: 600px;
+  margin-right: 10px;
+  border-radius: 3px;
+  color: white;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.loginScreen__input > form > input::placeholder {
+  color: #999;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.loginScreen__getStarted {
+  font-weight: 600;
+  background-color: #e50914;
+  border: none;
+  padding: 19px 21px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.loginScreen__getStarted > svg {
+  font-size: 1.5rem;
+  margin-left: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+  .loginScreen__background {
+    background-size: contain;
+  }
+
+  .loginScreen__logo {
+    left: 20px;
+  }
+
+  .loginScreen__button {
+    right: 20px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .loginScreen__body {
+    top: 20%;
+    margin-left: 20px;
+    padding: 10px;
+  }
+
+  .loginScreen__body > h1 {
+    font-size: 2rem;
+  }
+
+  .loginScreen__body > h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .loginScreen__body > h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .loginScreen__input > form > input {
+    padding: 8px;
+    height: 35px;
+    width: 70%;
+    font-size: 0.9rem;
+  }
+
+  .loginScreen__getStarted {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .loginScreen__getStarted > svg {
+    font-size: 1.2rem;
+  }
+}
